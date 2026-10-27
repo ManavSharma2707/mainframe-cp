@@ -1,0 +1,66 @@
+MIGRATION VALIDATION REPORT
+Legacy-to-Modern Data Migration Validator  (TK5 / MVS 3.8J)
+
+BATCH ID  : B20261027085117
+RUN DATE  : 2026-10-27 08:51:17
+DECISION  : REJECTED (RC 8)  DO NOT CUT OVER
+
+
+RECONCILIATION
+  Source records in extract .....      1,020
+  Identical duplicates dropped ..         20
+  Conflicting duplicate keys ....          0
+  Unique source records .........      1,000
+  Target records in extract .....        995
+  Target records in VSAM KSDS ...        995
+  Matched .......................        975
+  Mismatched records ............         15
+  Missing in target .............         10
+  Extra in target ...............          5
+
+  Check: matched+mismatched+missing = unique source : OK
+  Check: matched+mismatched+extra   = target        : OK
+  Check: target extract = target KSDS (no rejects)  : OK
+
+
+BALANCE CONTROL TOTALS (information only)
+  Source total ...        51567069.65
+  Target total ...        51150964.78
+  Difference .....         -416104.87
+
+
+EXCEPTIONS SORTED BY TYPE AND KEY (30 rows)
+
+TYPE     CUST-ID  ACCT-NO    FIELD    SOURCE VALUE                   TARGET VALUE
+MISSING  C0000016 A100000112 *RECORD  KAVYA KULKARNI        41172.45
+MISSING  C0000116 A100000812 *RECORD  KAVYA GUPTA           86998.89
+MISSING  C0000224 A100001568 *RECORD  ISHAAN JOSHI           6310.86
+MISSING  C0000242 A100001694 *RECORD  MEERA MEHTA           81168.86
+MISSING  C0000333 A100002331 *RECORD  SAMEER IYER           78771.90
+MISSING  C0000445 A100003115 *RECORD  SAMEER JOSHI          51864.50
+MISSING  C0000649 A100004543 *RECORD  KABIR MEHTA           23230.29
+MISSING  C0000683 A100004781 *RECORD  AARAV MEHTA           34043.36
+MISSING  C0000885 A100006195 *RECORD  DIYA JOSHI             9105.49
+MISSING  C0000997 A100006979 *RECORD  VIKRAM MEHTA          19121.00
+MISMATCH C0000010 A100000070 NAME     SAMEER KULKARNI                SAMEER KULKARNX
+MISMATCH C0000045 A100000315 TXNDATE  20250314                       2025-03-30
+MISMATCH C0000125 A100000875 BALANCE      64362.65                       64362.15
+MISMATCH C0000174 A100001218 BALANCE      92938.22                       93937.22
+MISMATCH C0000253 A100001771 NAME     PRIYA GUPTA                    PRIYA GUPTX
+MISMATCH C0000287 A100002009 BALANCE      89112.66                       89113.66
+MISMATCH C0000411 A100002877 BALANCE      74972.20                       74971.70
+MISMATCH C0000493 A100003451 STATUS   A                              I
+MISMATCH C0000602 A100004214 TXNDATE  20260809                       2026-08-12
+MISMATCH C0000605 A100004235 BALANCE      73026.57                       72981.57
+MISMATCH C0000713 A100004991 STATUS   I                              A
+MISMATCH C0000716 A100005012 STATUS   A                              I
+MISMATCH C0000811 A100005677 TXNDATE  20250201                       2025-02-21
+MISMATCH C0000817 A100005719 NAME     ANANYA NAIR                    ANANYA NAIX
+MISMATCH C0000822 A100005754 BALANCE      31117.92                       31117.42
+EXTRA    C0001001 A900000001 *RECORD                                 EXTRA CUSTOMER 1       1874.30
+EXTRA    C0001002 A900000002 *RECORD                                 EXTRA CUSTOMER 2       4980.32
+EXTRA    C0001003 A900000003 *RECORD                                 EXTRA CUSTOMER 3       4082.28
+EXTRA    C0001004 A900000004 *RECORD                                 EXTRA CUSTOMER 4       3377.49
+EXTRA    C0001005 A900000005 *RECORD                                 EXTRA CUSTOMER 5        414.84
+
+*** END OF REPORT ***

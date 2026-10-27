@@ -1,0 +1,5 @@
+build/
+data/
+runs/
+python/config.json
+__pycache__/

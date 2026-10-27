@@ -1,0 +1,12 @@
+{
+  "hlq": "HERC01",
+  "password": "CUL8TR",
+  "job_class": "A",
+  "msgclass": "A",
+  "unit": "SYSDA",
+  "vsam_volume": "TSO001",
+  "tk5_host": "127.0.0.1",
+  "reader_port": 3505,
+  "tk5_dir": "C:/mvs-tk5",
+  "job_timeout_seconds": 900
+}

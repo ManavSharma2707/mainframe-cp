@@ -1,0 +1,41 @@
+//@HLQ@B JOB (1),'MIG BUILD',CLASS=@CLASS@,MSGCLASS=@MSGCLASS@,
+//         MSGLEVEL=(1,1),USER=@HLQ@,PASSWORD=@PASSWORD@
+//*-------------------------------------------------------------------
+//* BUILD - loads the COBOL and REXX source into PDS libraries and
+//* compiles + link-edits MIGMATCH into @HLQ@.MIG.LOAD.
+//* Safe to re-run (the source libraries are re-created each time).
+//* Expected: COMPILE.COB RC 0004 (warnings only), COMPILE.LKED 0000.
+//*-------------------------------------------------------------------
+//DELSRC   EXEC PGM=IDCAMS
+//SYSPRINT DD SYSOUT=*
+//SYSIN    DD *
+ DELETE @HLQ@.MIG.SOURCE NONVSAM
+ DELETE @HLQ@.MIG.REXX NONVSAM
+ SET MAXCC = 0
+/*
+//LOADCOB  EXEC PGM=IEBUPDTE,PARM=NEW
+//SYSPRINT DD SYSOUT=*
+//SYSUT2   DD DSN=@HLQ@.MIG.SOURCE,DISP=(NEW,CATLG,DELETE),
+//            UNIT=@UNIT@,SPACE=(TRK,(10,5,10)),
+//            DCB=(RECFM=FB,LRECL=80,BLKSIZE=3120)
+//SYSIN    DD DATA,DLM=$$
+./ ADD NAME=MIGMATCH
+@COBOL:MIGMATCH@
+./ ENDUP
+$$
+//LOADRX   EXEC PGM=IEBUPDTE,PARM=NEW
+//SYSPRINT DD SYSOUT=*
+//SYSUT2   DD DSN=@HLQ@.MIG.REXX,DISP=(NEW,CATLG,DELETE),
+//            UNIT=@UNIT@,SPACE=(TRK,(10,5,10)),
+//            DCB=(RECFM=FB,LRECL=80,BLKSIZE=3120)
+//SYSIN    DD DATA,DLM=$$
+./ ADD NAME=MIGREXX
+@REXX:MIGREXX@
+./ ADD NAME=MIGHIST
+@REXX:MIGHIST@
+./ ENDUP
+$$
+//COMPILE  EXEC COBUCL
+//COB.SYSIN    DD DSN=@HLQ@.MIG.SOURCE(MIGMATCH),DISP=SHR
+//LKED.SYSLMOD DD DSN=@HLQ@.MIG.LOAD(MIGMATCH),DISP=SHR
+//

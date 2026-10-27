@@ -1,0 +1,18 @@
+Job HERC01V (JES2 job 38) on TK5 - scenario seeded
+
+Step      Procstep  Program   Result
+CLEAN               IDCAMS    RC= 0000
+LOADSRC             IEBGENER  RC= 0000
+LOADTGT             IEBGENER  RC= 0000
+SORTSRC   SORT      IERRCO00  RC= 0000
+SORTTGT   SORT      IERRCO00  RC= 0000
+DEFKSDS             IDCAMS    RC= 0000
+LOADKSDS            IDCAMS    RC= 0000
+UNLOAD              IDCAMS    RC= 0000
+MATCH               MIGMATCH  RC= 0000
+REXXRUN   EXEC      BREXX     RC= 0008
+AUDIT               IDCAMS    RC= 0000
+APPROVE             IEBGENER  *FLUSH*
+REJECT              IEBGENER  RC= 0000
+PRINTRPT            IEBGENER  RC= 0000
+PRINTOUT            IEBGENER  RC= 0000
