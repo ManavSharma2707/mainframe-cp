@@ -1,6 +1,6 @@
-# The prompt (paste into Claude Code, opened in the `migvalid-tk5` folder)
+# The prompt (paste into your coding assistant, opened in the `migvalid-tk5` folder)
 
-Copy everything between the lines into Claude Code. Start TK5 first and wait
+Copy everything between the lines into the assistant. Start TK5 first and wait
 until the IPL has finished (the TSO logon screen appears in your 3270
 terminal).
 
@@ -15,7 +15,7 @@ present it. I am a beginner: before every step explain in 1-2 plain sentences
 what you will do, and afterwards what the output means. Keep messages short.
 
 FIRST read these files completely, in this order, and follow them:
-  CLAUDE.md
+  README.md
   docs/CONTEXT_1_TK5_FACTS.md
   docs/CONTEXT_2_DESIGN.md
   docs/CONTEXT_3_CODING_RULES.md
@@ -86,7 +86,7 @@ check_tk5.py. Stop at the end of each STEP and wait for me to say "next".
 
 ---
 
-## If you want Claude Code to rebuild everything from nothing
+## If you want the assistant to rebuild everything from nothing
 
 Use the prompt above. The project already contains every file, and
 rebuilding from scratch only adds risk. If you still want it, add this line:

@@ -8,8 +8,8 @@ No DB2 and no Zowe are involved, and everything stays on your own PC.
 | Read this | For |
 |---|---|
 | `docs/USER_MANUAL.md` | running everything by hand, step by step |
-| `docs/PROMPT.md` | the single prompt to give Claude Code |
-| `CLAUDE.md` + `docs/CONTEXT_*.md` | the context Claude Code needs (TK5 facts, design, coding rules) |
+| `docs/PROMPT.md` | a ready-made step-by-step install and demo prompt |
+| `docs/CONTEXT_*.md` | background: TK5 facts, design, coding rules |
 
 Quick start (TK5 running, from the `python` folder):
 ```
